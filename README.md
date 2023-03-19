@@ -13,7 +13,7 @@ sudo apt-get install libqtgui4
 sudo apt-get install libqt4-testv
 ```
 ### Step 2:
- Make sure the google apt-keys are correct
+ Make sure the google apt-keys are correctly added
 ```echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 ```
