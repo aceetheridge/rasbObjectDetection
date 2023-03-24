@@ -29,5 +29,5 @@ sudo apt-get install
 Install the tensor flow lite runtime enviornment on the pi
 
 ```
-python3-tflite-runtime
+sudo apt-get install python3-tflite-runtime
 ```
