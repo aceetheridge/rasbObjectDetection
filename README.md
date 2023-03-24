@@ -32,3 +32,6 @@ Install the tensor flow lite runtime enviornment on the pi
 ```
 sudo apt-get install python3-tflite-runtime
 ```
+
+If issues arise with installing opencv-python then take a look at this link and follow the steps provided https://raspberrypi-guide.github.io/programming/install-opencv
+
