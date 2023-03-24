@@ -17,19 +17,25 @@ def applyTensors(interpreter, image, threshold):
   tensorIn(interpreter, image)
   cv2.imshow('Pi Feed', image)
   interpreter.invoke()
-  boxes = tensorOut(interpreter, 0)
-  classes = tensorOut(interpreter, 1)
-  scores = tensorOut(interpreter, 2)
-  count = np.array(tensorOut(interpreter, 3)).size
+  classes = tensorOut(interpreter, 3)
+  boxes = tensorOut(interpreter, 1)
+  count = tensorOut(interpreter, 2)
+  scores: np.ndarray = tensorOut(interpreter, 0)
+ 
+  
   
 
   results = []
-  for i in range(count):
-    if scores[i] >= threshold:
-      result = {
-          'bounding_box': boxes[i],
-          'class_id': classes[i],
-          'score': scores[i]
-      }
-      results.append(result)
+  for i in range(0, count.size):
+      if scores[i] >= threshold:
+          try:
+              bounding_box = boxes[i]
+          except:
+              bounding_box = [0.0, 0.0, 0.0, 0.0]
+          result = {
+              "bounding_box": bounding_box,
+              "class_id": classes[i],
+              "score": scores[i],
+          }
+          results.append(result)
   return results

@@ -20,7 +20,7 @@ def main():
     while cap.isOpened():
         ret, frame = cap.read()
         img = cv2.resize(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), (320,320))
-        res = applyTensors(interpreter, img, 0.2)
+        res = applyTensors(interpreter, img, 0.7)
         print(res)
 
         for result in res:
